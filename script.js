@@ -4,27 +4,37 @@ let emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/
 let mobilePattern = /^[0-9]{10}$/
 
 
-let name = document.getElementById("#name")
-let nameValue = name.value
+let name = document.getElementById("name");
+let email = document.getElementById("email")
+let number = document.getElementById("number")
 
-let email = document.getElementById("#email")
-let emailValue = email.value
+name.addEventListener("input", () => {
+  let nameValue = name.value;
 
-let number = document.getElementById("#number")
-let numberValue = number.value
+  if (namePattern.test(nameValue)) {
+    name.style.backgroundColor = "lightgreen";
+  } else {
+    name.style.backgroundColor = "pink";
+  }
+});
 
-function validName() {
-	if(namePattern.test(nameValue)){
-		name.style.backgroundcolor = "lightgreen"
+email.addEventListener("input", () => {
+	let emailValue = email.value
+	if(emailPattern.test(emailValue)){
+		email.style.backgroundColor = "lightgreen"
+	}else{
+		email.style.backgroundColor = "pink"
 	}
-}
-function validEmail() {
-	if(namePattern.test(emailValue)){
-		email.style.backgroundcolor = "lightgreen"
+})
+
+number.addEventListener("input", () => {
+	let numberValue = number.value
+	if(mobilePattern.test(numberValue)){
+		number.style.backgroundColor = "lightgreen"
+	}else{
+		number.style.backgroundColor = "pink"
 	}
-}
-function validNumber() {
-	if(namePattern.test(numberValue)){
-		number.style.backgroundcolor = "lightgreen"
-	}
-}
+})
+
+
+
